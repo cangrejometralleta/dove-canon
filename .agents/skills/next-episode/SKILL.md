@@ -20,7 +20,7 @@ The Shape Lives in [The Lever and the Tape](../../../patterns/the-lever-and-the-
 ```mermaid
 flowchart TD
     START["next · go · vamos · sigues · let's go · come on<br/>sigue · continue · go on · 1/2/3"] --> FIND{"Recommendation Found?"}
-    FIND -- No --> OPEN["Defer to YoYoYo · Stop"]
+    FIND -- No --> OPTIONS["Defer to GimmeGimmeGimme · Frame grounded paths · Wait"]
     FIND -- Yes --> HOLDS{"Still Holds?"}
     HOLDS -- No --> RENAME["Name what Changed · Restate one Step"]
     HOLDS -- Yes --> REPEAT{"Same outcome-level Step<br/>in 3 consecutive invocations?"}
@@ -72,7 +72,10 @@ The Thread Wins over the Handoff when both speak.
 `Now` names the current Scope. `Later` preserves context.
 Neither is a Recommendation.
 When no source names a step, do not Invent one.
-Say so, and defer to YoYoYo.
+Defer to [GimmeGimmeGimme](../gimme-gimme-gimme/SKILL.md) to frame grounded
+ways forward from the current intent and evidence, then wait for the user's
+choice. If the current position is unclear, Gimme asks one focused question.
+Do not send the user back to YoYoYo just because no next step was named.
 
 ## Confirm it Holds
 
@@ -141,7 +144,7 @@ When nothing Holds:
 
 ```text
 ⚠️ No standing Recommendation found.
-Open the Session with YoYoYo, or name the step.
+Defer to GimmeGimmeGimme to frame grounded options and wait for the user's choice.
 ```
 
 ## Bounds
