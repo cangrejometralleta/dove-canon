@@ -438,7 +438,7 @@ The mini is self-contained: it does not install the Dove agent or the rest of
 the Canon. To pin a published release, append its tag, for example:
 
 ```sh
-npx skills add cangrejometralleta/dove-canon#v2.0.3 --skill cadencia-dove-mini
+npx skills add cangrejometralleta/dove-canon#v2.1.0 --skill cadencia-dove-mini
 ```
 
 The full skill set may also be installed with `npx skills add`, but that does
