@@ -115,4 +115,4 @@ Keep it to the Shape and its Decisions, never a Review.
   Name the other repository's Step and hand it over.
 - Never let the Origin Win a Disagreement with real running Code.
 - Never present a Decision without its Cost.
-- Never commit; [commit-commit-commit](../../commit-commit-commit/SKILL.md) does that.
+- Never commit; [PushIt](../../push-it/SKILL.md) does that.

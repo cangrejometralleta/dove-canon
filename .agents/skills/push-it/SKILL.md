@@ -1,10 +1,11 @@
 ---
-name: commit-commit-commit
+name: push-it
 description: Analyze local Git changes, explain the features they implement, separate them into coherent commits, commit each feature, and push after every commit succeeds. Use when the user asks to organize local changes into feature commits, split the work into separate commits, or commit and push the changes.
 ---
 
-# CommitCommitCommit
+# PushIt
 
+The Name Recalls *Push It* by Salt-N-Pepa.
 A Curator, not a commit message Generator.
 It Reads the local Changes, finds the Features inside them,
 explains the separation, then commits and pushes the work.
@@ -145,9 +146,10 @@ When unsure whether a value is real, treat it as real and Warn.
 - When replacing remote history is required, inspect the exact target and use
   `--force-with-lease`; never use unconditional `--force` or bypass branch
   protection.
-- Do not warn or ask again solely because the configured push target is `main`.
-  Push normally to the existing upstream; let branch protection accept or
-  reject the update, and report any rejection without bypassing it.
+- When this workflow includes a push and an upstream Exists, push to it without
+  asking for a second confirmation, on any branch. Report the push after it
+  succeeds; report a rejection and stop if Git or branch protection denies it.
+- Never bypass branch protection or push to a branch without an upstream.
 - Never Brand a commit or pull request with its Vendor —
   no co-author, session or generated-by Trailer; the message carries the Change.
 - Never create an Upstream without naming the branch and asking first.
@@ -158,7 +160,7 @@ When unsure whether a value is real, treat it as real and Warn.
 After the push, report the feature Commits and destination:
 
 ```text
-✅ Pushed to origin/main
+⚠️ Pushed to origin/main
 - a1b2c3d Shorten skill names
 - d4e5f6a Add feature commit workflow
 ```

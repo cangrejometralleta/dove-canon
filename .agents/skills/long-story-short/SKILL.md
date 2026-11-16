@@ -173,5 +173,5 @@ Next — commit the merge.
 - Never land two Stories in one turn.
 - Never promote a tenth Story while nine are Full.
 - Never rewrite a human's Rhythm to make it fit.
-- Never commit; [commit-commit-commit](../commit-commit-commit/SKILL.md) does that.
+- Never commit; [PushIt](../push-it/SKILL.md) does that.
 - Never do another repository's work from here; name it and hand it over.
