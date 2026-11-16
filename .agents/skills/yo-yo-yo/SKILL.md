@@ -10,6 +10,12 @@ It Reconstructs where the work stopped,
 checks whether the change stayed one change,
 and leaves one Part ready to continue.
 
+Open with a brief three-act recap of the previous session, beginning
+"Previously…": what brought the work there, what changed or became clear,
+and where it stopped. Use the session history, bounded by the latest `til`
+or `yo-yo-yo` recap when one exists. Then give the current Handoff below;
+the recap supplies continuity and does not replace the present-state check.
+
 The next Turn Lives in [NextEpisode](../next-episode/SKILL.md).
 The Canon Lives in [Change Growth](../../../rules/change-growth.md).
 The Shape Lives in [The Lever and the Tape](../../../patterns/the-lever-and-the-tape.md).
@@ -163,8 +169,10 @@ The chosen Number becomes the selected Step for
 
 ## What it Returns
 
-Keep the Opening short and ground every claim in a session,
-a path, a commit or an explicit user message.
+Keep the three-act "Previously…" recap concise, then keep the Opening short.
+Ground every claim in a session, a path, a commit or an explicit user message.
+If the session history is unavailable, do not invent a recap; say that briefly
+and continue from the Handoff and Git evidence.
 
 ```text
 **Where we were** — Add session continuity to project Skills.

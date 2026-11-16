@@ -13,6 +13,7 @@ It Leaves the next Session one durable Thread to pick up.
 The next Turn Lives in [YoYoYo](../yo-yo-yo/SKILL.md).
 The Canon Lives in [Change Growth](../../../rules/change-growth.md).
 The working Snapshot Lives in [RememberTheDay](../remember-the-day/SKILL.md).
+The Closing Recap Lives in [TIL](../til/SKILL.md).
 Moving a Thread to another Repository Lives in [Transfer](references/transfer.md).
 The Shape Lives in [The Lever and the Tape](../../../patterns/the-lever-and-the-tape.md).
 
@@ -27,7 +28,8 @@ flowchart TD
 	SPLIT --> WRITE
 	CHECK --> WRITE
 	WRITE --> REPORT["Report where the Handoff Lives"]
-	REPORT --> STOP["Stop · Do not Continue Work"]
+	REPORT --> TIL["Write Three-act TIL Recap"]
+	TIL --> STOP["Stop · Do not Continue Work"]
 ```
 
 ## When it Runs
@@ -117,11 +119,19 @@ that can separate the intents.
 
 ## What it Returns
 
-After writing, say only what was Left and where:
+After writing, report where the Handoff Lives, then end with a three-paragraph
+TIL recap of the session. Follow [TIL](../til/SKILL.md)'s window and legibility
+rules; the recap is the final content, with no sign-off or offer after it.
+Do not repeat the full Handoff in the recap.
 
 ```text
 ✅ Handoff Written to .handoff.md
-The next session Starts with: one concrete action.
+
+We began by… [Act one: the purpose or question that brought us here.]
+
+Then… [Act two: what changed, was decided or became clear.]
+
+Now… [Act three: where we left the work and what comes next.]
 ```
 
 ## Bounds

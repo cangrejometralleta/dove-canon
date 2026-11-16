@@ -1,16 +1,18 @@
 ---
 name: til
-description: Capture the main things learned in a session, including decisions and discoveries that help the user's work continue. Use when someone asks “what did we learn today?”, “what did we figure out?”, or requests a learning recap.
+description: Capture a brief of the whole session in three acts, including decisions and discoveries that help the user's work continue. Use when someone asks for a “til”, “TIL”, “what did we learn today?”, “what did we figure out?”, or a session recap.
 ---
 
 # TIL — Today I Learned
 
-Capture the most useful things learned in the current session, through this request.
+Capture the session's useful story, not only a list of lessons.
+Shape it as three short acts: what brought us here, what changed or became
+clear, and where we left things.
 
 ## Set the Window
 
-Start at the beginning of the current session, or at the latest point where
-[YoYoYo](../yo-yo-yo/SKILL.md) reopened it, whichever is later.
+Start at the beginning of the current session, or at the latest `til` or
+[YoYoYo](../yo-yo-yo/SKILL.md) recap, whichever is later.
 Include relevant discoveries, decisions and outcomes through now.
 Do not treat the calendar day as the boundary or carry older work forward
 just because it is still visible in the repository.
@@ -32,9 +34,10 @@ Do not bury a blocker among minor details or soften it into a generic limitation
 Include other limitations only when they materially affect the result.
 When no blocker was found, do not add a generic all-clear.
 
-Let the session determine the shape: one short paragraph for a small session,
-or a short paragraph and a few bullets when several outcomes need separation.
-Use no fixed headings or repeated status template.
+Write exactly three short paragraphs, one for each act. Give each paragraph
+one claim, stated first. Vary sentence length so the recap reads naturally;
+use clear transitions and ordinary words. Keep details that explain a decision,
+change or next direction, and leave out the rest.
 
 Return only the recap; do not add a preamble, sign-off or follow-up offer.
 

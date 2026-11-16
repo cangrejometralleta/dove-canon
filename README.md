@@ -50,7 +50,8 @@ yo-yo-yo          reconstruct Context and name one next Step
 gimme-gimme-gimme frame up to three paths and wait for a choice
 next-episode      execute that Step, verify it and stop
 remember-the-day  persist State while the Work is moving
-bye-bye-bye       leave a handoff another session can resume
+til               recap the session in three short acts
+bye-bye-bye       leave a handoff and end with a TIL recap
 ```
 
 Other projects connect by taking the skills, the agent and the Canon together,
@@ -299,8 +300,10 @@ Its bounds are explicit:
 
 It also hooks the session lifecycle. A durable edit calls `remember-the-day`.
 The greetings `ha dove`, `hey dove`, `yo dove`, `hi dove`, `sup dove`,
-`ring dove` and `ring ring dove` call `yo-yo-yo`. The farewell `bye dove`
-calls `bye-bye-bye`. When a detour leaves the original purpose pending, Dove
+`ring dove` and `ring ring dove` call `yo-yo-yo`. Ask for `til` to recap the
+session since the previous TIL or YoYoYo recap. The farewell `bye dove` calls
+`bye-bye-bye`, which writes the handoff and ends with that three-act recap.
+When a detour leaves the original purpose pending, Dove
 offers `sexy back` to return. In conversation it uses ordinary capitalization
 and lets the three beats guide the answer without repeating their labels. The
 Quipu behind that turn shape is told in the
@@ -361,14 +364,13 @@ Each skill is one operation, and its linked file holds the details.
 | A change starts growing | [2-become-1](.agents/skills/2-become-1/SKILL.md) | Checks whether one intent still holds the change. |
 | Ask for pending stories | [long-story-short](.agents/skills/long-story-short/SKILL.md) | Sorts stories by what they wait on and distills the one you pick. |
 | Organize local changes into feature commits, split work into commits, or commit and push the changes | [commit-commit-commit](.agents/skills/commit-commit-commit/SKILL.md) | Groups changes by feature, commits each group, pushes once after all succeed. |
-| `bye dove`, `I'm done for now`, `let's wrap up` or request a handoff | [bye-bye-bye](.agents/skills/bye-bye-bye/SKILL.md) | Expands the checkpoint into a closing handoff and stops. |
+| `bye dove`, `chao dove`, `I'm done for now`, `let's wrap up`, `hasta aquí por hoy`, `lo dejamos aquí` or request a handoff | [bye-bye-bye](.agents/skills/bye-bye-bye/SKILL.md) | Expands the checkpoint into a closing handoff, ends with a three-act TIL recap and stops. |
 | A secret may have entered history, such as an accidentally committed API key, or a vendor needs debranding | [dirrty](.agents/skills/dirrty/SKILL.md) | Detects, confirms and purges an exact value from files and history; also debrands vendor authorship as a last resort. |
 
 Supporting skills shape the work as it happens:
 [cadencia-dove](.agents/skills/cadencia-dove/SKILL.md) for conversation,
 [like-to-move-it](.agents/skills/like-to-move-it/SKILL.md) for code and requirement-led design,
-[de-la-case](.agents/skills/de-la-case/SKILL.md) for names and prose, and
-[til](.agents/skills/til/SKILL.md) for a session's key learnings.
+[de-la-case](.agents/skills/de-la-case/SKILL.md) for names and prose.
 
 The [Session Diagram](patterns/the-lever-and-the-tape.md) connects these
 operations. A new request with its own intent starts its own work. Opening a

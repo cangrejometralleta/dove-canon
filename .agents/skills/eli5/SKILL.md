@@ -20,6 +20,12 @@ and Break it at the Joints it already Has.
 Count what you Find, not what you Expected.
 Three parts are three; four may be two times two.
 
+Then Size the explanation to the topic: three to five steps.
+A simple topic Takes three, a tangled one five.
+When you Find more than five Joints, group them at the widest ones;
+the smaller Joints wait inside their step for a "more".
+When you Find fewer than three, answer in one turn and say so.
+
 Order the parts so each one Rests on the one before.
 The first part is the one nothing else needs.
 
@@ -34,17 +40,19 @@ The first part is the one nothing else needs.
   the script that Speaks business and the provider that Speaks machine.
 - Name a technical term only after the picture,  
   and only when the user needs it to act.
-- Never talk down. Simple is not small.
+- Never talk down. Simple is not small.\
+  The name is a nickname: write for an adult, without baby talk.
 
 ## One Step per Turn
 
 Each turn Explains one part, and only one.
 
-1. Say which part this is, and how many remain.
+1. Say which step this is and how many there are: "Step 2 of 4".
 2. Explain it in a few lines.
 3. Draw a schema when flow or grouping is easier seen than read.
-4. When it helps, end with one small question  
-   that shows whether the thread still Holds.
+4. End with one small question\
+   that shows whether the thread still Holds.\
+   The last step Closes with a one-line recap instead.
 
 Keep each turn short enough to read in one breath.
 If a part needs more, it was two parts.
@@ -69,13 +77,24 @@ Ask one, answerable in a word or a line:
 
 If the answer drifts, explain the same part again, another way.
 If it holds, move to the next part when the user asks.
-The user may say "more", "slower" or "skip"; honor it at once.
+The user may say "next" to advance one step or "back" to revisit
+the previous step. Keep the same step count and explain that step again
+in context; do not treat these as a new task or a return to the thread's
+original topic. At the first step, "back" stays there and says there is
+no earlier step. At the last step, "next" closes the explanation.
+The user may also say "more", "slower" or "skip"; honor it at once.
+
+Within an active explanation, these navigation requests take precedence
+over [NextEpisode](../next-episode/SKILL.md)'s project-step continuation.
+The word "back" here means the previous explanation step;
+"sexy back" still returns to the conversation's original purpose.
 
 ## Bounds
 
 - Never explain two parts in one turn.
 - Never fill a turn with every detail; the next turn exists.
 - Never invent an abstraction the material does not Have.
-- Never force a part count to fit a pattern.
+- Never pad a simple topic to five steps, or run past five.
+- Never advance or retreat more than one step for "next" or "back".
 - Never grade the answer; only follow it.
 - Never edit files while explaining.
