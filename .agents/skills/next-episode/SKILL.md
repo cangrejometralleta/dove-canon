@@ -96,11 +96,19 @@ When the Recommendation Carries more than one Outcome,
 take the first independently verifiable Part
 and leave the rest as `Later`.
 
+An explicit request or affirmative selection authorizes the named Boundary.
+If that selected Step is a push, use the requested destination or the current
+branch's configured upstream when it is clear. Do not ask for the same
+permission again: attempt the push and report its result. Ask only when the
+destination is missing or ambiguous; stop if Git rejects it. Never create an
+upstream or bypass branch protection.
+
 Do the Work. Do not narrate the options.
 Do not start a second Part because the first was small.
-When the step crosses a Boundary the user has not authorized —
-a push, a deletion, an outward send —
-stop before it and Ask.
+When a Boundary has not been authorized —
+a push, a deletion, an outward send — stop before it and Ask.
+An explicit request or affirmative selection already authorizes that named
+Boundary; do not ask for the same permission twice.
 
 ## Verify
 

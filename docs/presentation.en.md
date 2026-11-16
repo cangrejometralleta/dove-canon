@@ -113,7 +113,7 @@ Dove Canon, dove-canon, dove_canon and dovecanon name the same Project. The repo
 
 The author hears a direct musical influence between *Perfect (Exceeder)* and *4 noviosS*. That connection is his Interpretation as a listener. The three references meet in the project's Practice: counting aloud helps us feel where a phrase begins, where its stress falls and when it needs a pause.
 
-Hip hop, pop and R&B appear in the manifesto as companions for reading and writing. Their influence emerges through attention to Pulse, pauses and sentence length. An explanation can develop an Idea over several lines, then give it a short sentence in which to settle. The reading breathes.
+The Person chooses whether music accompanies the Work. For the author, hip hop, pop and R&B can sit beside typing or structured reading: their familiar rhythms are easy to follow without demanding constant attention. That experience informs the Canon's prose — a thought may unfold across a few lines, then settle in a short sentence. Music remains a companion, never a condition for entering the flow.
 
 [De La Soul](https://en.wikipedia.org/wiki/De_La_Soul) inspires the idea of Rotation among three participants. The project uses that reference to imagine a structure in which relationships matter and the center can shift. Music provides a Language for thinking about collaboration, as well as a companion to work.
 
@@ -268,7 +268,14 @@ Depth reads as Particularity. The top of the Cord holds the General, and every k
 ```mermaid
 flowchart TD
     CURRENT["Current topic"] --> CHECK{"Is there a useful step?"}
-    CHECK -- Yes --> STEP["Take one authorized step"]
+    CHECK -- Yes --> AUTH{"Is this step authorized?"}
+    AUTH -- Yes --> STEP["Take one authorized step"]
+    AUTH -- "No · boundary unclear" --> ASK["Ask only for the missing authority or destination"]
+    ASK --> WAIT
+    CURRENT -- "User requests PushIt" --> PUSH_CHECK{"Requested or configured destination<br/>and Git permits push?"}
+    PUSH_CHECK -- Yes --> PUSH["Push without asking again"]
+    PUSH --> REPORT["Report the branch and result as a warning"]
+    PUSH_CHECK -- "Destination missing or Git rejects" --> STOP["Ask for missing destination or report rejection"]
     CHECK -- "Uncertainty, friction or repetition" --> UNBLOCK["say-no-go<br/>Read attempts and evidence"]
     UNBLOCK --> STATE{"Diagnosis"}
     STATE -- "Can continue" --> STEP

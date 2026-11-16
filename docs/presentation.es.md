@@ -113,7 +113,7 @@ Dove Canon, dove-canon, dove_canon y dovecanon nombran el mismo Proyecto. El rep
 
 El autor escucha una influencia musical directa entre *Perfect (Exceeder)* y *4 noviosS*. Esa conexión es su Interpretación como oyente. Las tres referencias confluyen en la Práctica del proyecto: contar en voz alta ayuda a sentir dónde empieza una frase, dónde cae su acento y cuándo necesita una pausa.
 
-El hip hop, el pop y el R&B aparecen en el manifiesto como compañías para leer y escribir. Su influencia se expresa en la atención al Pulso, la pausa y la longitud de las frases. Una explicación puede desarrollar una Idea durante varias líneas y luego dejar una frase breve que la asiente. La lectura respira.
+La Persona elige si la Música acompaña el Trabajo. Para el autor, el hip hop, el pop y el R&B pueden convivir con el tecleo o una lectura estructurada: sus ritmos conocidos se siguen sin exigir atención constante. Esa experiencia inspira la prosa del Canon: una idea puede desplegarse durante algunas líneas y asentarse después en una frase breve. La Música acompaña; nunca es requisito para entrar en el flujo.
 
 [De La Soul](https://es.wikipedia.org/wiki/De_La_Soul) inspira la idea de Rotación entre tres participantes. El proyecto toma esa referencia para pensar una estructura donde las relaciones importan y el centro puede cambiar. La Música ofrece aquí un Lenguaje para imaginar colaboración, además de una compañía para trabajar.
 
@@ -268,7 +268,14 @@ La Profundidad se lee como Particularidad. Lo alto del Cordón sostiene lo Gener
 ```mermaid
 flowchart TD
     CURRENT["Tema actual"] --> CHECK{"¿Hay un paso útil?"}
-    CHECK -- Sí --> STEP["Tomar un paso autorizado"]
+    CHECK -- Sí --> AUTH{"¿Este paso está autorizado?"}
+    AUTH -- Sí --> STEP["Tomar un paso autorizado"]
+    AUTH -- "No · límite incierto" --> ASK["Pedir solo la autoridad o el destino que falta"]
+    ASK --> WAIT
+    CURRENT -- "La persona pide PushIt" --> PUSH_CHECK{"¿Destino pedido o configurado<br/>y Git permite pushear?"}
+    PUSH_CHECK -- Sí --> PUSH["Pushear sin volver a preguntar"]
+    PUSH --> REPORT["Avisar la rama y el resultado como advertencia"]
+    PUSH_CHECK -- "Falta destino o Git rechaza" --> STOP["Pedir el destino que falta o informar el rechazo"]
     CHECK -- "Duda, atasco o repetición" --> UNBLOCK["say-no-go<br/>Leer intentos y evidencia"]
     UNBLOCK --> STATE{"Diagnóstico"}
     STATE -- "Podemos continuar" --> STEP

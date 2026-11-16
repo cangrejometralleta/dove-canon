@@ -1,7 +1,7 @@
 # The Lever and the Tape
 
-- Three session Skills Stand together.
-  One Opens, one Advances, one closes.
+- Opening, advancing and closing are three session anchors.
+  TIL is available throughout the main flow and ends the closing turn.
   Nobody Designed a machine; a machine appeared.
 
 ```mermaid
@@ -10,6 +10,9 @@ flowchart TD
     OPTIONS["gimme-gimme-gimme<br/>Frame up to three paths · Wait for choice"]
     NEXT["next-episode<br/>Advance · Move one Cell"]
     BYE["bye-bye-bye<br/>Close · Write the Tape"]
+    TIL["til<br/>Recap since the latest TIL or YoYoYo"]
+    CLOSE_TIL["Three-act TIL<br/>Then stop"]
+    END["Session ends"]
 
     BACK["sexy-back<br/>Roll up the detour · Return to the origin"]
     UNBLOCK["say-no-go<br/>Say no · Name what is missing · Offer another way or perspective"]
@@ -25,7 +28,11 @@ flowchart TD
     PASTE["User copies it to destination root"]
     OPEN["yo-yo-yo reads the handoff<br/>Receiver owns active Next"]
     WAIT["Wait for the next Request"]
-    COMMIT["Push It<br/>Group · Validate · Commit · Push"]
+    COMMIT["Push It<br/>Group · Validate · Commit"]
+    PUSH_CHECK{"Requested or configured destination<br/>and Git permits push?"}
+    PUSH["Push to that destination<br/>without asking again"]
+    PUSHED["Report the pushed branch<br/>as a warning"]
+    PUSH_STOP["Report the exact blocker<br/>and stop"]
 
     HEY -- "Name one next Step" --> WAIT
     WAIT -- "Ask for paths from the current state" --> OPTIONS
@@ -50,6 +57,8 @@ flowchart TD
     PASTE --> OPEN
     OPEN --> NEXT
     WAIT -- "Request return to the origin" --> BACK
+    WAIT -- "Ask for a TIL" --> TIL
+    TIL --> WAIT
     BACK -- "Durable change or Decision" --> CHECKPOINT
     BACK -- "No durable change" --> WAIT
     WAIT -- "Ask about blockers or repeated reasoning" --> UNBLOCK
@@ -59,10 +68,23 @@ flowchart TD
     UNBLOCK -- "Diagnosis changes the next step" --> CHECKPOINT
     UNBLOCK -- "Conversation only · Missing input · Alternative or return" --> WAIT
     WAIT -- "Request commit and Push" --> COMMIT
-    COMMIT -- "Record the durable Result" --> CHECKPOINT
+    COMMIT --> PUSH_CHECK
+    PUSH_CHECK -- Yes --> PUSH
+    PUSH --> PUSHED
+    PUSHED -- "Record the durable Result" --> CHECKPOINT
+    PUSH_CHECK -- "Destination unclear or Git rejects" --> PUSH_STOP
     WAIT -- "bye dove · request Handoff" --> BYE
-    BYE -- "Next session · ha dove" --> HEY
+    BYE -- "Write Handoff, then recap" --> CLOSE_TIL
+    CLOSE_TIL --> END
+    END -- "Next session · ha dove" --> HEY
 ```
+
+Cadencia Dove carries through every turn: one visible thread, legible choices
+and short paragraphs that leave room for a thought to land. The Person chooses
+whether music accompanies the work. For the author, hip hop and pop can sit
+beside typing or structured reading because their familiar rhythms are easy to
+follow without demanding constant attention. Music is a companion, never a
+condition for entering the flow.
 
 - The Name is the Lever. A triple Chant Pulls it,
   and the pull is Ritual — cheap, loud, and wanted.
