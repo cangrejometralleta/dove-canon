@@ -1,6 +1,6 @@
 ---
 name: gimme-gimme-gimme
-description: "Frame up to three grounded ways forward. Use when the user asks ‘what are our options?’, ‘where do we go from here?’, ‘what can we do next?’, ‘¿qué opciones tenemos?’ or when several viable paths compete without a clear next step. Present only distinct choices and wait for the user; do not choose or execute one. If progress is blocked, invoke say-no-go and name the blocker plainly."
+description: "Frame up to three grounded ways forward. Use when the user asks ‘what are our options?’, ‘where do we go from here?’, ‘what can we do next?’, ‘what’s next?’, ‘now what?’, ‘what are the alternatives?’, ‘give me options’, ‘¿qué opciones tenemos?’, ‘¿qué hacemos ahora?’, ‘¿y ahora qué?’, ‘¿qué sigue?’, ‘¿qué alternativas hay?’, ‘dame opciones’ or when several viable paths compete without a clear next step. Present only distinct choices and wait for the user; do not choose or execute one. If progress is blocked, invoke say-no-go and name the blocker plainly."
 ---
 
 # Gimme! Gimme! Gimme!

@@ -1,6 +1,6 @@
 ---
 name: sexy-back
-description: "Return to the purpose that started the current conversation thread, preserving pending digressions. Use when the user says ‘sexy back’, ‘sexyback’, ‘vuelve al origen’, ‘volvamos al tema original’ or asks to get back to where the conversation started. Mentioning the song or editing this skill does not activate it."
+description: "Return to the purpose that started the current conversation thread, preserving pending digressions. Use when the user says ‘sexy back’, ‘sexyback’, ‘back on track’, ‘back to the point’, ‘we got sidetracked’, ‘vuelve al origen’, ‘volvamos al tema original’, ‘volvamos a lo nuestro’, ‘nos fuimos por las ramas’, ‘retoma el hilo’ or asks to get back to where the conversation started. Mentioning the song or editing this skill does not activate it."
 ---
 
 # SexyBack

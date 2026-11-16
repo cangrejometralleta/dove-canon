@@ -1,6 +1,6 @@
 ---
 name: next-episode
-description: "Take exactly one already-recommended next step. Use when the user affirmatively says ‘next’, ‘go’, ‘vamos’, ‘sigues’, ‘let’s go’, ‘come on’, ‘sigue’, ‘continue’, ‘go on’, ‘go ahead’, ‘carry on’, ‘proceed’, ‘do the next step’, ‘dale’ or ‘continúa’, selects a numbered option, or asks to take the named next step; confirm it still holds and name the following step."
+description: "Take exactly one already-recommended next step. Use when the user affirmatively says ‘next’, ‘go’, ‘vamos’, ‘sigues’, ‘let’s go’, ‘come on’, ‘sigue’, ‘continue’, ‘go on’, ‘go ahead’, ‘carry on’, ‘proceed’, ‘do the next step’, ‘do it’, ‘keep going’, ‘ship it’, ‘dale’, ‘continúa’, ‘siguiente’, ‘adelante’, ‘hazlo’, ‘hagámoslo’, ‘procede’, ‘va’ or ‘de una’, selects a numbered option, or asks to take the named next step; confirm it still holds and name the following step."
 ---
 
 # NextEpisode
@@ -38,7 +38,8 @@ flowchart TD
 
 Invoke when the user uses `next`, `go`, `vamos`, `sigues`, `let's go`
 or `come on` as an affirmative continuation prompt. Also accept `sigue`,
-`continue` and `go on`, a reply with the number of a presented choice,
+`continue`, `go on`, `do it`, `keep going`, `siguiente`, `adelante`, `hazlo`
+and `dale`, a reply with the number of a presented choice,
 or a request to proceed and do the next step.
 
 These phrases select the standing recommendation; they do not create one.

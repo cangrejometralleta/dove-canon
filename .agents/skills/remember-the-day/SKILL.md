@@ -1,6 +1,6 @@
 ---
 name: remember-the-day
-description: "Preserve the current work thread in a compact repository checkpoint after a durable edit, decision or validation. Use when the user asks to ‘save progress’, ‘checkpoint this’ or ‘record where we are’; do not use for conversation-only turns or final session closure."
+description: "Preserve the current work thread in a compact repository checkpoint after a durable edit, decision or validation. Use when the user asks to ‘save progress’, ‘save this’, ‘checkpoint this’, ‘record where we are’, ‘save our place’, ‘guarda el progreso’, ‘guarda esto’, ‘anota dónde vamos’, ‘deja registro’ or ‘haz un checkpoint’; do not use for conversation-only turns or final session closure."
 ---
 
 # RememberTheDay

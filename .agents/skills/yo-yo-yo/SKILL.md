@@ -1,6 +1,6 @@
 ---
 name: yo-yo-yo
-description: "Resume a project at the start of a returning session: recover where work stopped, what is done, what remains, and the next step. Use for greetings like ‘ha’, ‘hey’, ‘yo’, ‘hi’, ‘sup’ or ‘ring ring Dove’, or requests like ‘where did we leave off?’, ‘catch me up’, ‘what remains?’, ‘retomemos’, ‘¿por dónde íbamos?’ or ‘ponme al día’; also check whether recent work split into multiple intents."
+description: "Resume a project at the start of a returning session: recover where work stopped, what is done, what remains, and the next step. Use for greetings like ‘ha’, ‘hey’, ‘yo’, ‘hi’, ‘hello’, ‘hola’, ‘buenas’, ‘morning’, ‘sup’, ‘I’m back’ or ‘ring ring Dove’, or requests like ‘where did we leave off?’, ‘catch me up’, ‘what remains?’, ‘what’s left?’, ‘where were we?’, ‘pick up where we left off’, ‘retomemos’, ‘¿por dónde íbamos?’, ‘¿en qué quedamos?’, ‘¿en qué estábamos?’, ‘¿qué falta?’, ‘sigamos donde lo dejamos’ or ‘ponme al día’; also check whether recent work split into multiple intents."
 ---
 
 # YoYoYo
@@ -16,7 +16,7 @@ The Shape Lives in [The Lever and the Tape](../../../patterns/the-lever-and-the-
 
 ```mermaid
 flowchart TD
-    START["ha · hey · yo · hi · sup dove"] --> UPSTREAM{"Upstream Exists?"}
+    START["ha · hey · yo · hi · hola · sup dove"] --> UPSTREAM{"Upstream Exists?"}
     UPSTREAM -- Yes --> PULL["Attempt Pull · Rebase · Autostash"]
     UPSTREAM -- No --> LOCAL["Continue from local State"]
     PULL --> SYNC{"Synchronization Succeeded?"}

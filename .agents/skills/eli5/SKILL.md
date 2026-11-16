@@ -1,6 +1,6 @@
 ---
 name: eli5
-description: "Explain a system, idea or change in plain, grounded language, one small step per turn, using the project's own abstractions and a schema when it helps. Use when the user says explain me like I'm five, ELI5, explícame como si tuviera 5 años, or asks for a simpler, step-by-step explanation. Mentioning or editing this skill does not activate it."
+description: "Explain a system, idea or change in plain, grounded language, in three to five steps sized to the topic, one step per turn with a check between them, using the project's own abstractions and a schema when it helps. Use when the user says ‘explain’, ‘ELI5’, ‘explain me like I'm five’, ‘explain it simply’, ‘in plain words’, ‘break it down’, ‘walk me through it’, ‘I don't get it’, ‘explícame como si tuviera 5 años’, ‘explícamelo simple’, ‘en palabras simples’, ‘explícame paso a paso’, ‘con peras y manzanas’, ‘no entiendo’ or ‘no cacho’, or asks for a simpler, step-by-step explanation. Mentioning or editing this skill does not activate it."
 ---
 
 # ELI5

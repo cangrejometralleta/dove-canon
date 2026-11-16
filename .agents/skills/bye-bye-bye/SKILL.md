@@ -1,6 +1,6 @@
 ---
 name: bye-bye-bye
-description: "Close a work session with a concise repository handoff. Use when the user says ‘bye dove’, ‘I’m done for now’, ‘let’s wrap up’ or ‘let’s stop here’, asks to leave a handoff, or wants the next session to resume safely. Also prepares a copy-ready handoff to move a thread to another repository: ‘move this thread to another repo’, ‘carry this work over’, ‘transfer this work’."
+description: "Close a work session with a concise repository handoff. Use when the user says ‘bye dove’, ‘chao dove’, ‘I’m done for now’, ‘let’s wrap up’, ‘let’s stop here’, ‘that’s it for today’, ‘call it a day’, ‘signing off’, ‘hasta aquí por hoy’, ‘lo dejamos aquí’, ‘cerremos’, ‘terminamos por hoy’ or ‘deja un handoff’, asks to leave a handoff, or wants the next session to resume safely. Also prepares a copy-ready handoff to move a thread to another repository: ‘move this thread to another repo’, ‘carry this work over’, ‘transfer this work’."
 ---
 
 # ByeByeBye

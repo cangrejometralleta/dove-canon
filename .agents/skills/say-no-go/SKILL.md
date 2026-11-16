@@ -1,6 +1,6 @@
 ---
 name: say-no-go
-description: "Say no to work that cannot go on, or to an answer the user disagrees with, then name what is missing and offer another way: an independent approach, another perspective or a return to another topic. Assesses whether progress is possible, externally blocked, caught in repeated reasoning, or out of useful hypotheses. Use when the user says ‘I’m stuck’, ‘I disagree’, ‘no estoy de acuerdo’ or ‘give me another perspective’, asks ‘what’s blocking us?’ or ‘how do we get unstuck?’, asks what is missing to continue, when a Step meets a block, or when attempts repeat without new evidence."
+description: "Say no to work that cannot go on, or to an answer the user disagrees with, then name what is missing and offer another way: an independent approach, another perspective or a return to another topic. Assesses whether progress is possible, externally blocked, caught in repeated reasoning, or out of useful hypotheses. Use when the user says ‘I’m stuck’, ‘I disagree’, ‘I don’t buy it’, ‘this isn’t working’, ‘we’re going in circles’, ‘try another angle’, ‘give me another perspective’, ‘no estoy de acuerdo’, ‘estoy atascado’, ‘estoy pegado’, ‘no avanzamos’, ‘esto no funciona’ or ‘dame otra perspectiva’, asks ‘what’s blocking us?’, ‘how do we get unstuck?’, ‘¿qué nos bloquea?’ or ‘¿qué nos falta?’, asks what is missing to continue, when a Step meets a block, or when attempts repeat without new evidence."
 ---
 
 # SayNoGo
