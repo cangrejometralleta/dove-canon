@@ -28,8 +28,8 @@ the architecture, the operations and the checks that make them concrete.
 - To work as an Agent, start at [AGENTS.md](AGENTS.md), then read
   [Rules](RULES.md).
 - To see the Rules run, open the [School service](examples/school/README.md).
-- To connect another project, read
-  [Connect another project](#connect-another-project).
+- To install the full Canon or only the mini voice skill, see
+  [Install Dove](#install-dove).
 
 ## What the Harness Does
 
@@ -54,8 +54,9 @@ til               recap the session in three short acts
 bye-bye-bye       leave a handoff and end with a TIL recap
 ```
 
-Other projects connect by taking the skills, the agent and the Canon together,
-as [Connect another project](#connect-another-project) explains.
+Choose the full Canon for its agent, skills and governing context, or install
+the standalone mini voice skill when you only want a concise conversational
+style.
 
 Knowledge crosses the same kind of boundary. Raw experience stays in `chaos/`.
 Once the person is removed, what is left may become a Story. Only the learning
@@ -377,24 +378,72 @@ operations. A new request with its own intent starts its own work. Opening a
 session names the next step; publication and closing each need their own
 request.
 
-### Connect another project
+### Install Dove
 
-The skills and the Dove agent work as one set, and both lean on the Canon.
-Skills cite [Rules](RULES.md), [Values](VALUES.md) and [Patterns](PATTERNS.md)
-by relative link, and the agent routes the work to the skills. Taking one
-without the others leaves it working worse, so connect all three.
+Choose the full Canon when you want the Dove agent, its skills and the Rules,
+Values and Patterns those instructions refer to. Choose the mini skill when
+you only want Dove's concise conversational style in an existing project.
 
-- **Clone or submodule.** Link `.agents/skills` and `.agents/agents` into your
-  client's folders, as `.claude/skills` and `.claude/agents` do here. The
-  relative links keep resolving, and [joining-you](.agents/skills/joining-you/SKILL.md)
-  applies a documented layout of them.
-- **`npx skills add cangrejometralleta/dove-canon`.** It installs the skills
-  and nothing else, and `#v2.0.3` pins a release. Each skill is copied alone,
-  so in a clean install 65 of 106 relative links broke, and `dove.md` was not
-  installed. The skills still load; what they cite does not resolve.
+#### Full Canon: clone or submodule
 
-Whichever way you connect, check the folder and then ask the client. The
-folder proves the links, and the client proves the Agent loaded them.
+Clone the repository:
+
+```sh
+git clone https://github.com/cangrejometralleta/dove-canon.git
+```
+
+Or add it to an existing project as a submodule:
+
+```sh
+git submodule add https://github.com/cangrejometralleta/dove-canon.git vendor/dove-canon
+```
+
+Then connect the shared agent and skills to the client's discovery folders.
+From the project root, for Claude Code:
+
+```sh
+mkdir -p .claude
+ln -s ../vendor/dove-canon/.agents/agents .claude/agents
+ln -s ../vendor/dove-canon/.agents/skills .claude/skills
+```
+
+For Codex, connect the agent directory:
+
+```sh
+mkdir -p .codex
+ln -s ../vendor/dove-canon/.agents/agents .codex/agents
+```
+
+If you cloned the Canon directly into the project root instead of `vendor/`,
+use `../.agents/agents` and `../.agents/skills` as the link targets. The
+repository's own `.claude/agents`, `.claude/skills` and `.codex/agents` show
+this layout. Keep the Canon checkout in place: its relative links let the
+agent and skills read `AGENTS.md`, `RULES.md`, `VALUES.md` and `PATTERNS.md`.
+
+Update a submodule with:
+
+```sh
+git submodule update --remote vendor/dove-canon
+```
+
+#### Mini skill: install with `npx`
+
+To add only the portable short voice to a project:
+
+```sh
+npx skills add cangrejometralleta/dove-canon --skill cadencia-dove-mini
+```
+
+The mini is self-contained: it does not install the Dove agent or the rest of
+the Canon. To pin a published release, append its tag, for example:
+
+```sh
+npx skills add cangrejometralleta/dove-canon#v2.0.3 --skill cadencia-dove-mini
+```
+
+The full skill set may also be installed with `npx skills add`, but that does
+not install the agent or the Canon files its relative links point to. Use the
+clone or submodule route when you need the complete system.
 
 ### Experience earns its way into the Canon
 
