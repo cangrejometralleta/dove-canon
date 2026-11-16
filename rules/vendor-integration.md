@@ -37,16 +37,16 @@ The shared Markdown Defines the agent's Voice and behavior.
 The small TOML Adapter Identifies the Codex agent
 and instructs it to read that markdown before it talks.
 
-The repeated three-part names Mark fundamental workflow operations —
-open, commit and close — so they stand out from the rest.
+The workflow songs Mark session operations — open, continue, commit and close —
+so they are easy to recall.
 [yo-yo-yo](../.agents/skills/yo-yo-yo/SKILL.md) Opens the session.
 [next-episode](../.agents/skills/next-episode/SKILL.md) Advances one step.
-[commit-commit-commit](../.agents/skills/commit-commit-commit/SKILL.md) Handles commits and the final push.
+[push-it](../.agents/skills/push-it/SKILL.md) Handles commits and the final push.
 [bye-bye-bye](../.agents/skills/bye-bye-bye/SKILL.md) Closes with a handoff.
 The typography skill is [de-la-case](../.agents/skills/de-la-case/SKILL.md),
 and its convention is [DeLaCase](de-la-case.md).
-The third word Carries no stage; the triple chant is the lever,
-and [The Lever and the Tape](../patterns/the-lever-and-the-tape.md) Draws it.
+The Name recalls *Push It* by Salt-N-Pepa: validate each Group,
+then send successful Commits upstream.
 
 ```mermaid
 flowchart TD

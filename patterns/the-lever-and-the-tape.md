@@ -25,7 +25,7 @@ flowchart TD
     PASTE["User copies it to destination root"]
     OPEN["yo-yo-yo reads the handoff<br/>Receiver owns active Next"]
     WAIT["Wait for the next Request"]
-    COMMIT["commit-commit-commit<br/>Group · Validate · Commit · Push"]
+    COMMIT["Push It<br/>Group · Validate · Commit · Push"]
 
     HEY -- "Name one next Step" --> WAIT
     WAIT -- "Ask for paths from the current state" --> OPTIONS
@@ -82,7 +82,7 @@ flowchart TD
   Both Write `.handoff.md`; the next opening reads it.
 - [Transfer](../.agents/skills/bye-bye-bye/references/transfer.md) passes the active Thread between paired repositories without closing the session.
   It returns a copy-ready `.handoff.md` whose Intent connects the evidence, open work, references and one `Next`.
-- [CommitCommitCommit](../.agents/skills/commit-commit-commit/SKILL.md) Publishes when requested.
+- [PushIt](../.agents/skills/push-it/SKILL.md) Publishes when requested.
   Feature Commits Come first; one push follows successful validation and commits.
   Publication does not Close the session.
 - [2Become1](../.agents/skills/2-become-1/SKILL.md) Checks the scope as work accumulates.
