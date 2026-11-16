@@ -48,7 +48,7 @@ A normal session is short on purpose:
 ```text
 yo-yo-yo          reconstruct Context and name one next Step
 gimme-gimme-gimme frame up to three paths and wait for a choice
-next-episode      execute that Step, verify it and stop
+next-episode      take and verify one Step; if none is named, route to options
 remember-the-day  persist State while the Work is moving
 til               recap the session in three short acts
 bye-bye-bye       leave a handoff and end with a TIL recap
@@ -351,10 +351,10 @@ Each skill is one operation, and its linked file holds the details.
 | When | Skill | What it does |
 | --- | --- | --- |
 | `ha dove`, `hey dove`, `yo dove`, `hi dove`, `sup dove`, `ring dove`, `ring ring dove`, `hola`, `catch me up`, `what remains?`, `where did we leave off?`, `¿en qué quedamos?` or `¿qué falta?` | [yo-yo-yo](.agents/skills/yo-yo-yo/SKILL.md) | Syncs the project branch, rebuilds context and names one next step. |
-| `what are our options?`, `where do we go from here?`, `what can we do next?`, `now what?`, `¿qué opciones tenemos?`, `¿qué hacemos ahora?` or `¿y ahora qué?` | [gimme-gimme-gimme](.agents/skills/gimme-gimme-gimme/SKILL.md) | Frames up to three distinct, grounded paths; routes blockers to `say-no-go`. |
+| `what are our options?`, `where do we go from here?`, `what can we do next?`, `now what?`, `¿qué opciones tenemos?`, `¿qué hacemos ahora?` or `¿y ahora qué?` | [gimme-gimme-gimme](.agents/skills/gimme-gimme-gimme/SKILL.md) | Frames up to three distinct, grounded paths; `next-episode` routes here when no next step is named; blockers go to `say-no-go`. |
 | Ask to speak in Dove's voice or use Cadencia Dove | [cadencia-dove](.agents/skills/cadencia-dove/SKILL.md) | Applies Dove's conversational style and option framing without requiring the Dove agent. |
 | Ask for Dove's short style or fewer tokens | [cadencia-dove-mini](.agents/skills/cadencia-dove-mini/SKILL.md) | A compact Cadencia Dove with DeLaCase on request and no links. `npx skills add cangrejometralleta/dove-canon --skill cadencia-dove-mini` installs it alone. |
-| `next`, `go`, `vamos`, `sigues`, `let's go`, `come on`, `sigue`, `continue`, `go on`, `go ahead`, `carry on`, `proceed`, `do the next step`, `do it`, `siguiente`, `adelante`, `hazlo` or a selected option | [next-episode](.agents/skills/next-episode/SKILL.md) | Takes one recommended step, verifies it and names the following one. |
+| `next`, `go`, `vamos`, `sigues`, `let's go`, `come on`, `sigue`, `continue`, `go on`, `go ahead`, `carry on`, `proceed`, `do the next step`, `do it`, `siguiente`, `adelante`, `hazlo` or a selected option | [next-episode](.agents/skills/next-episode/SKILL.md) | Takes one recommended step, verifies it and names the following one; when none is named, routes to `gimme-gimme-gimme` and waits for your choice. |
 | `sexy back`, `back on track`, `vuelve al origen`, `volvamos al tema original`, `retoma el hilo` or return to where the conversation started | [sexy-back](.agents/skills/sexy-back/SKILL.md) | Rolls up the digression, preserves what remains pending and resumes the original purpose. |
 | `explain`, `ELI5`, `explain me like I'm five`, `explain it simply`, `break it down`, `I don't get it`, `explícamelo simple`, `paso a paso`, `no entiendo` or ask for a simpler explanation | [eli5](.agents/skills/eli5/SKILL.md) | Explains in three to five steps, one per turn in plain words; `next` and `back` move one step at a time. |
 | A durable edit, decision or validation; `save progress`, `record where we are`, `guarda el progreso` or `anota dónde vamos` | [remember-the-day](.agents/skills/remember-the-day/SKILL.md) | Saves the thread in `.handoff.md` during work. |
@@ -364,7 +364,7 @@ Each skill is one operation, and its linked file holds the details.
 | `I'm stuck`, `what's blocking us?`, `how do we get unstuck?`, `I disagree`, `give me another perspective`, `this isn't working`, `estoy atascado`, `no avanzamos` or reasoning repeats | [say-no-go](.agents/skills/say-no-go/SKILL.md) | Stops blocked work or a disputed answer, names what is missing and offers another approach, perspective or return to another topic. |
 | A change starts growing | [2-become-1](.agents/skills/2-become-1/SKILL.md) | Checks whether one intent still holds the change. |
 | Ask for pending stories | [long-story-short](.agents/skills/long-story-short/SKILL.md) | Sorts stories by what they wait on and distills the one you pick. |
-| Organize local changes into feature commits, split work into commits, or commit and push the changes | [push-it](.agents/skills/push-it/SKILL.md) | Groups changes by feature, commits each group, pushes once after all succeed and reports the result. |
+| Organize local changes into feature commits, split work into commits, or commit and push the changes | [push-it](.agents/skills/push-it/SKILL.md) | Groups and validates each feature, commits it, then pushes once to the configured upstream on any branch without another confirmation when Git accepts; reports the destination as a warning. |
 | `bye dove`, `chao dove`, `I'm done for now`, `let's wrap up`, `hasta aquí por hoy`, `lo dejamos aquí` or request a handoff | [bye-bye-bye](.agents/skills/bye-bye-bye/SKILL.md) | Expands the checkpoint into a closing handoff, ends with a three-act TIL recap and stops. |
 | A secret may have entered history, such as an accidentally committed API key, or a vendor needs debranding | [dirrty](.agents/skills/dirrty/SKILL.md) | Detects, confirms and purges an exact value from files and history; also debrands vendor authorship as a last resort. |
 

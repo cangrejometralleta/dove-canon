@@ -32,8 +32,8 @@ concretas. Los documentos enlazados están en inglés, salvo la Presentación.
   [Rules](RULES.md).
 - Para ver las Reglas en ejecución, abre el
   [servicio School](examples/school/README.md).
-- Para conectar otro proyecto, lee
-  [Conectar otro proyecto](#conectar-otro-proyecto).
+- Para instalar el Canon completo o solo la mini skill, ve a
+  [Instalar Dove](#instalar-dove).
 
 ## Qué hace el Harness
 
@@ -52,14 +52,16 @@ Una sesión normal es corta a propósito:
 ```text
 yo-yo-yo          reconstruye el Contexto y nombra un siguiente Paso
 gimme-gimme-gimme presenta hasta tres caminos y espera una elección
-next-episode      ejecuta ese Paso, lo verifica y se detiene
+next-episode      toma y verifica un Paso; si no hay uno nombrado, deriva a opciones
 remember-the-day  persiste el Estado mientras el Trabajo avanza
 til               resume la sesión en tres actos breves
 bye-bye-bye       deja un handoff y termina con un resumen TIL
 ```
 
-Los demás proyectos se conectan llevando juntos las skills, el agente y el
-canon, como explica [Conectar otro proyecto](#conectar-otro-proyecto).
+Elige el Canon completo para usar el agente Dove, sus skills y el contexto que
+las instrucciones enlazan. Elige la mini skill si solo quieres la voz breve de
+Dove en un proyecto existente. [Instalar Dove](#instalar-dove) explica ambas
+rutas.
 
 El conocimiento cruza el mismo tipo de frontera. La experiencia en bruto se
 queda en `chaos/`. Una vez quitada la persona, lo que queda puede volverse una
@@ -359,10 +361,10 @@ Cada skill es una operación, y su archivo enlazado guarda los detalles.
 | Cuándo | Skill | Qué hace |
 | --- | --- | --- |
 | `ha dove`, `hey dove`, `yo dove`, `hi dove`, `sup dove`, `ring dove`, `ring ring dove`, `hola`, `catch me up`, `what remains?`, `where did we leave off?`, `¿en qué quedamos?` o `¿qué falta?` | [yo-yo-yo](.agents/skills/yo-yo-yo/SKILL.md) | Sincroniza la rama, reconstruye el contexto y nombra un siguiente paso. |
-| `what are our options?`, `where do we go from here?`, `what can we do next?`, `now what?`, `¿qué opciones tenemos?`, `¿qué hacemos ahora?` o `¿y ahora qué?` | [gimme-gimme-gimme](.agents/skills/gimme-gimme-gimme/SKILL.md) | Presenta hasta tres caminos distintos y concretos; deriva los bloqueos a `say-no-go`. |
+| `what are our options?`, `where do we go from here?`, `what can we do next?`, `now what?`, `¿qué opciones tenemos?`, `¿qué hacemos ahora?` o `¿y ahora qué?` | [gimme-gimme-gimme](.agents/skills/gimme-gimme-gimme/SKILL.md) | Presenta hasta tres caminos distintos y concretos; `next-episode` deriva aquí cuando no hay un siguiente paso nombrado; los bloqueos van a `say-no-go`. |
 | Pide la voz conversacional de Dove o Cadencia Dove | [cadencia-dove](.agents/skills/cadencia-dove/SKILL.md) | Aplica el estilo y enmarcado de opciones sin necesitar al agente Dove. |
 | Pide el estilo corto de Dove o gastar menos tokens | [cadencia-dove-mini](.agents/skills/cadencia-dove-mini/SKILL.md) | Una Cadencia Dove compacta, con DeLaCase a pedido y sin links. `npx skills add cangrejometralleta/dove-canon --skill cadencia-dove-mini` la instala sola. |
-| `next`, `go`, `vamos`, `sigues`, `let's go`, `come on`, `sigue`, `continue`, `go on`, `go ahead`, `carry on`, `proceed`, `do the next step`, `do it`, `siguiente`, `adelante`, `hazlo` u opción elegida | [next-episode](.agents/skills/next-episode/SKILL.md) | Da un paso recomendado, lo verifica y nombra el siguiente. |
+| `next`, `go`, `vamos`, `sigues`, `let's go`, `come on`, `sigue`, `continue`, `go on`, `go ahead`, `carry on`, `proceed`, `do the next step`, `do it`, `siguiente`, `adelante`, `hazlo` u opción elegida | [next-episode](.agents/skills/next-episode/SKILL.md) | Da un paso recomendado, lo verifica y nombra el siguiente; si no hay uno nombrado, deriva a `gimme-gimme-gimme` y espera tu elección. |
 | `sexy back`, `back on track`, `vuelve al origen`, `volvamos al tema original`, `retoma el hilo` o volver a donde empezó la conversación | [sexy-back](.agents/skills/sexy-back/SKILL.md) | Enrolla la digresión, conserva lo pendiente y retoma el propósito original. |
 | `explain`, `ELI5`, `explain me like I'm five`, `explain it simply`, `break it down`, `I don't get it`, `explícamelo simple`, `paso a paso`, `no entiendo` o pedir una explicación más simple | [eli5](.agents/skills/eli5/SKILL.md) | Explica en tres a cinco pasos, uno por turno; `next` y `back` avanzan o retroceden un paso. |
 | Una edición o decisión durable; `save progress`, `record where we are`, `guarda el progreso` o `anota dónde vamos` | [remember-the-day](.agents/skills/remember-the-day/SKILL.md) | Guarda el hilo en `.handoff.md` durante el trabajo. |
@@ -372,7 +374,7 @@ Cada skill es una operación, y su archivo enlazado guarda los detalles.
 | `I'm stuck`, `what's blocking us?`, `how do we get unstuck?`, `no estoy de acuerdo`, `dame otra perspectiva`, `this isn't working`, `estoy atascado`, `no avanzamos` o razonamiento repetido | [say-no-go](.agents/skills/say-no-go/SKILL.md) | Detiene el trabajo bloqueado o una respuesta discutida, nombra lo que falta y ofrece otro enfoque, otra perspectiva o volver a otro tema. |
 | Un cambio empieza a crecer | [2-become-1](.agents/skills/2-become-1/SKILL.md) | Revisa si una sola intención aún sostiene el cambio. |
 | Pedir las stories pendientes | [long-story-short](.agents/skills/long-story-short/SKILL.md) | Ordena las stories por lo que esperan y destila la que elijas. |
-| Organizar cambios en commits por feature, separar el trabajo en commits o commitear y pushear | [push-it](.agents/skills/push-it/SKILL.md) | Agrupa cambios por feature, commitea cada grupo, pushea al terminar y avisa el resultado. |
+| Organizar cambios en commits por feature, separar el trabajo en commits o commitear y pushear | [push-it](.agents/skills/push-it/SKILL.md) | Agrupa y valida cada feature, la commitea y luego pushea una vez al upstream configurado en cualquier rama, sin confirmación adicional si Git lo acepta; avisa el destino como advertencia. |
 | `bye dove`, `chao dove`, `I'm done for now`, `let's wrap up`, `hasta aquí por hoy`, `lo dejamos aquí` o pedir un handoff | [bye-bye-bye](.agents/skills/bye-bye-bye/SKILL.md) | Expande el checkpoint, termina con un resumen TIL de tres actos y se detiene. |
 | Un secreto pudo entrar al historial, como una API key commiteada por error, o hay que quitar la marca de un vendor | [dirrty](.agents/skills/dirrty/SKILL.md) | Detecta, confirma y purga un valor exacto de archivos e historial; también quita la autoría de vendors como último recurso. |
 
@@ -386,26 +388,72 @@ operaciones. Un pedido nuevo con su propia intención inicia su propio trabajo.
 Abrir una sesión nombra el siguiente paso; publicar y cerrar necesitan cada
 uno su propio pedido.
 
-### Conectar otro proyecto
+### Instalar Dove
 
-Las skills y el agente Dove funcionan como un conjunto, y los dos se apoyan en
-el canon. Las skills citan [Reglas](RULES.md), [Valores](VALUES.md) y
-[Patrones](PATTERNS.md) con links relativos, y el agente encamina el trabajo a
-las skills. Llevarse una sin las otras la deja funcionando peor, así que
-conecta las tres.
+Elige el Canon completo si quieres el agente Dove, sus skills y las Reglas,
+Valores y Patrones a los que apuntan. Elige la mini skill si solo quieres la
+voz conversacional breve de Dove en un proyecto existente.
 
-- **Clone o submodule.** Enlaza `.agents/skills` y `.agents/agents` en las
-  carpetas de tu cliente, como hacen aquí `.claude/skills` y `.claude/agents`.
-  Los links relativos siguen resolviendo, y
-  [joining-you](.agents/skills/joining-you/SKILL.md) aplica una estructura
-  documentada de ellos.
-- **`npx skills add cangrejometralleta/dove-canon`.** Instala las skills y
-  nada más, y `#v2.0.3` fija un release. Cada skill se copia sola, así que en
-  una instalación limpia 65 de 106 links relativos se rompieron, y `dove.md` no
-  se instaló. Las skills cargan igual; lo que citan no resuelve.
+#### Canon completo: clone o submodule
 
-Conectes como conectes, revisa la carpeta y después pregúntale al cliente. La
-carpeta prueba los links, y el cliente prueba que el Agente los cargó.
+Clona el repositorio:
+
+```sh
+git clone https://github.com/cangrejometralleta/dove-canon.git
+```
+
+O agrégalo a un proyecto existente como submodule:
+
+```sh
+git submodule add https://github.com/cangrejometralleta/dove-canon.git vendor/dove-canon
+```
+
+Después enlaza el agente y las skills compartidas en las carpetas que el
+cliente descubre. Desde la raíz del proyecto, para Claude Code:
+
+```sh
+mkdir -p .claude
+ln -s ../vendor/dove-canon/.agents/agents .claude/agents
+ln -s ../vendor/dove-canon/.agents/skills .claude/skills
+```
+
+Para Codex, enlaza el directorio del agente:
+
+```sh
+mkdir -p .codex
+ln -s ../vendor/dove-canon/.agents/agents .codex/agents
+```
+
+Si clonaste el Canon directamente en la raíz del proyecto en vez de `vendor/`,
+usa `../.agents/agents` y `../.agents/skills` como destinos. Los enlaces del
+propio repositorio (`.claude/agents`, `.claude/skills` y `.codex/agents`)
+muestran esa estructura. Mantén el checkout: sus links relativos permiten que
+el agente y las skills lean `AGENTS.md`, `RULES.md`, `VALUES.md` y `PATTERNS.md`.
+
+Actualiza un submodule con:
+
+```sh
+git submodule update --remote vendor/dove-canon
+```
+
+#### Mini skill: instalar con `npx`
+
+Para agregar solo la voz breve y portable a un proyecto:
+
+```sh
+npx skills add cangrejometralleta/dove-canon --skill cadencia-dove-mini
+```
+
+La mini es autocontenida: no instala el agente Dove ni el resto del Canon. Para
+fijar un release publicado, agrega su tag, por ejemplo:
+
+```sh
+npx skills add cangrejometralleta/dove-canon#v2.0.3 --skill cadencia-dove-mini
+```
+
+`npx skills add` también puede instalar el resto de las skills, pero no instala
+el agente ni los archivos del Canon a los que apuntan sus links relativos. Usa
+clone o submodule si necesitas el sistema completo.
 
 ### La experiencia se gana un lugar en el Canon
 
