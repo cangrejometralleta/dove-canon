@@ -41,7 +41,7 @@ The workflow songs Mark session operations — open, continue, commit and close 
 so they are easy to recall.
 [yo-yo-yo](../.agents/skills/yo-yo-yo/SKILL.md) Opens the session.
 [next-episode](../.agents/skills/next-episode/SKILL.md) Advances one step.
-[push-it](../.agents/skills/push-it/SKILL.md) Handles commits and the final push.
+[push-it](../.agents/skills/push-it/SKILL.md) Handles commits, the final push and the deploy.
 [bye-bye-bye](../.agents/skills/bye-bye-bye/SKILL.md) Closes with a handoff.
 The typography skill is [de-la-case](../.agents/skills/de-la-case/SKILL.md),
 and its convention is [DeLaCase](de-la-case.md).

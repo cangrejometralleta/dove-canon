@@ -1,6 +1,6 @@
 ---
 name: push-it
-description: Analyze local Git changes, explain the features they implement, separate them into coherent commits, commit each feature, and push after every commit succeeds. Use when the user asks to organize local changes into feature commits, split the work into separate commits, or commit and push the changes.
+description: Analyze local Git changes, explain the features they implement, separate them into coherent commits, commit each feature, push after every commit succeeds, then deploy or publish through the project's own configured mechanism. Use when the user asks to organize local changes into feature commits, split the work into separate commits, or commit and push the changes.
 ---
 
 # PushIt
@@ -8,7 +8,7 @@ description: Analyze local Git changes, explain the features they implement, sep
 The Name Recalls *Push It* by Salt-N-Pepa.
 A Curator, not a commit message Generator.
 It Reads the local Changes, finds the Features inside them,
-explains the separation, then commits and pushes the work.
+explains the separation, then commits, pushes and publishes the work.
 
 The Canon Lives in [Emoji](../../../rules/emoji.md),
 [Structure](../../../rules/structure.md)
@@ -74,6 +74,56 @@ Do not stage a mixed Hunk merely because its file is already in a group.
 7. Commit with a message that says what the feature Changes.
 8. Repeat until the intended local Changes are committed.
 9. Push Once, after every commit and validation succeeds.
+10. [Publish](#publish) after the push succeeds.
+
+## Publish
+
+Pushing is not the end of the Work; the Change must Reach its readers.
+Invoking this skill is the authorization to deploy or publish,
+through the mechanism the project already Configures and nothing else.
+
+What *deploy* or *publish* means comes from the repository itself.
+Read its README, `AGENTS.md`, install docs, manifests and workflows
+to learn how the Work reaches its users. Never from habit:
+
+1. **Push-triggered** — a workflow that deploys on the pushed branch
+   (GitHub Pages, Actions, a connected host). The push is the deploy.
+   Follow the run until it Finishes and report its result and URL:
+
+   ```
+   gh run list --branch <branch> --limit 1
+   gh run watch <run-id>
+   ```
+
+2. **Command-triggered** — a documented script or command
+   (`deploy`, `publish`, `pages` in `package.json`, a Makefile, a README
+   or `AGENTS.md`). Run it once, after the push, from the repository root.
+
+3. **Branch-triggered** — Pages served from a branch such as `gh-pages`
+   or `/docs` on `main`. Publish only through the documented build step.
+
+4. **Source-installed** — the repository is itself what users install,
+   such as skills added with `npx skills add owner/repo`, a git dependency
+   or a plugin Marketplace read from the remote. The push to the branch
+   users install from is the publish; confirm that the branch is the
+   documented one and report the install command that now serves the Change.
+   A pinned release or tag is a separate Snapshot; cut one only when the
+   repository's docs say this Change Calls for it, and ask for the version.
+
+When nothing is configured, say so in one line and stop.
+Do not invent a target, create a Workflow, enable Pages
+or add a deploy Script to make the step possible.
+
+Publish only from the branch the project Deploys from.
+On any other branch, push and report that the deploy was Skipped, and why.
+
+Ask first when the step cannot be Undone or Leaves the project's own Host:
+registry releases (`npm publish`, package indexes), release tags,
+production Environments marked as such, or a Target that differs
+from the one the repository documents.
+
+A failed deploy does not undo the push. Report the failure,
+the command or run, and stop; never retry in a Loop or Force a different route.
 
 ## First Commit
 
@@ -143,6 +193,8 @@ When unsure whether a value is real, treat it as real and Warn.
 - Never Rewrite, amend or squash existing commits unless asked.
 - Never Include unrelated local changes to make the tree clean.
 - Never Push when validation fails or a commit fails.
+- Never Deploy when the push failed or was Rejected.
+- Never Deploy a target the repository does not Configure.
 - When replacing remote history is required, inspect the exact target and use
   `--force-with-lease`; never use unconditional `--force` or bypass branch
   protection.
@@ -157,13 +209,18 @@ When unsure whether a value is real, treat it as real and Warn.
 
 ## What it Returns
 
-After the push, report the feature Commits and destination:
+After the push, report the feature Commits and destination.
+After the deploy, add one line for its Result:
 
 ```text
 ⚠️ Pushed to origin/main
 - a1b2c3d Shorten skill names
 - d4e5f6a Add feature commit workflow
+⚠️ Published to GitHub Pages — https://owner.github.io/repo/
 ```
+
+Say `Deploy skipped` with the Reason when nothing is configured,
+the branch does not Deploy, or the step Failed.
 
 ## Sources
 
