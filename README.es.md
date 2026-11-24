@@ -448,7 +448,7 @@ La mini es autocontenida: no instala el agente Dove ni el resto del Canon. Para
 fijar un release publicado, agrega su tag, por ejemplo:
 
 ```sh
-npx skills add cangrejometralleta/dove-canon#v2.1.0 --skill cadencia-dove-mini
+npx skills add cangrejometralleta/dove-canon#v2.2.0 --skill cadencia-dove-mini
 ```
 
 `npx skills add` también puede instalar el resto de las skills, pero no instala
