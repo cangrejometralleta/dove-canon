@@ -52,14 +52,13 @@ AGENTS.md stays free for the short pointer to canon.
 
 ## Undistilled Context
 
-8 of 9 filled. Distill before promoting a tenth.
+7 of 9 filled. Distill before promoting a tenth.
 
 - [Roadmap](stories/roadmap.md) — own linter and modular cluster with LiteLLM
 - [Another three showing up on its own](stories/another-three-showing-up.md) (SPECULATIVE)
 - [The Distance the User Opens](stories/the-distance-the-user-opens.md) (SPECULATIVE)
 - [A Memory at the Root](stories/memory-index.md)
 - [A Channel for Design](stories/a-channel-for-design.md) — the Value landed; the example Catalog waits, and the skill name is now `like-to-move-it`
-- [The Skill Travels; the Agent Has a Home](stories/agent-and-skill.md) — across Agent hosts
 - [Common Language Aligns](stories/common-language-aligns.md) — psychology and common language as small, calibrated contributions to alignment
 - [Code Generation Needs a Size and Correctness Trial](stories/code-generation-benchmark.md) (MOVING: Luna High G-L Dove failed the adapter contract; a Sonnet High G-L Dove retry passed it; smaller cases, replications and the other conditions on Sonnet remain) — compare vanilla, Caveman and Dove against School at three scales
 
