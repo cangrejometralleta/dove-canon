@@ -364,7 +364,7 @@ Each skill is one operation, and its linked file holds the details.
 | `I'm stuck`, `what's blocking us?`, `how do we get unstuck?`, `I disagree`, `give me another perspective`, `this isn't working`, `estoy atascado`, `no avanzamos` or reasoning repeats | [say-no-go](.agents/skills/say-no-go/SKILL.md) | Stops blocked work or a disputed answer, names what is missing and offers another approach, perspective or return to another topic. |
 | A change starts growing | [2-become-1](.agents/skills/2-become-1/SKILL.md) | Checks whether one intent still holds the change. |
 | Ask for pending stories | [long-story-short](.agents/skills/long-story-short/SKILL.md) | Sorts stories by what they wait on and distills the one you pick. |
-| Organize local changes into feature commits, split work into commits, or commit and push the changes | [push-it](.agents/skills/push-it/SKILL.md) | Groups and validates each feature, commits it, then pushes once to the configured upstream on any branch without another confirmation when Git accepts; reports the destination as a warning. |
+| Organize local changes into feature commits, split work into commits, or commit and push the changes | [push-it](.agents/skills/push-it/SKILL.md) | Groups and validates each feature, commits it, then pushes once to the configured upstream on any branch without another confirmation when Git accepts, and deploys or publishes through the project's own configured mechanism (e.g. GitHub Pages); reports the destination and deploy result as warnings. |
 | `bye dove`, `chao dove`, `I'm done for now`, `let's wrap up`, `hasta aquí por hoy`, `lo dejamos aquí` or request a handoff | [bye-bye-bye](.agents/skills/bye-bye-bye/SKILL.md) | Expands the checkpoint into a closing handoff, ends with a three-act TIL recap and stops. |
 | A secret may have entered history, such as an accidentally committed API key, or a vendor needs debranding | [dirrty](.agents/skills/dirrty/SKILL.md) | Detects, confirms and purges an exact value from files and history; also debrands vendor authorship as a last resort. |
 
@@ -438,7 +438,7 @@ The mini is self-contained: it does not install the Dove agent or the rest of
 the Canon. To pin a published release, append its tag, for example:
 
 ```sh
-npx skills add cangrejometralleta/dove-canon#v2.1.0 --skill cadencia-dove-mini
+npx skills add cangrejometralleta/dove-canon#v2.2.0 --skill cadencia-dove-mini
 ```
 
 The full skill set may also be installed with `npx skills add`, but that does

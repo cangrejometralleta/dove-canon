@@ -105,7 +105,8 @@ condition for entering the flow.
 - [Transfer](../.agents/skills/bye-bye-bye/references/transfer.md) passes the active Thread between paired repositories without closing the session.
   It returns a copy-ready `.handoff.md` whose Intent connects the evidence, open work, references and one `Next`.
 - [PushIt](../.agents/skills/push-it/SKILL.md) Publishes when requested.
-  Feature Commits Come first; one push follows successful validation and commits.
+  Feature Commits Come first; one push follows successful validation and commits,
+  then the project's own configured deploy.
   Publication does not Close the session.
 - [2Become1](../.agents/skills/2-become-1/SKILL.md) Checks the scope as work accumulates.
   It Keeps one Intent in view before another step compounds it.

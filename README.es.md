@@ -374,7 +374,7 @@ Cada skill es una operación, y su archivo enlazado guarda los detalles.
 | `I'm stuck`, `what's blocking us?`, `how do we get unstuck?`, `no estoy de acuerdo`, `dame otra perspectiva`, `this isn't working`, `estoy atascado`, `no avanzamos` o razonamiento repetido | [say-no-go](.agents/skills/say-no-go/SKILL.md) | Detiene el trabajo bloqueado o una respuesta discutida, nombra lo que falta y ofrece otro enfoque, otra perspectiva o volver a otro tema. |
 | Un cambio empieza a crecer | [2-become-1](.agents/skills/2-become-1/SKILL.md) | Revisa si una sola intención aún sostiene el cambio. |
 | Pedir las stories pendientes | [long-story-short](.agents/skills/long-story-short/SKILL.md) | Ordena las stories por lo que esperan y destila la que elijas. |
-| Organizar cambios en commits por feature, separar el trabajo en commits o commitear y pushear | [push-it](.agents/skills/push-it/SKILL.md) | Agrupa y valida cada feature, la commitea y luego pushea una vez al upstream configurado en cualquier rama, sin confirmación adicional si Git lo acepta; avisa el destino como advertencia. |
+| Organizar cambios en commits por feature, separar el trabajo en commits o commitear y pushear | [push-it](.agents/skills/push-it/SKILL.md) | Agrupa y valida cada feature, la commitea y luego pushea una vez al upstream configurado en cualquier rama, sin confirmación adicional si Git lo acepta, y luego hace deploy o publica con el mecanismo que el proyecto ya tiene configurado (p. ej. GitHub Pages); avisa el destino y el resultado del deploy como advertencias. |
 | `bye dove`, `chao dove`, `I'm done for now`, `let's wrap up`, `hasta aquí por hoy`, `lo dejamos aquí` o pedir un handoff | [bye-bye-bye](.agents/skills/bye-bye-bye/SKILL.md) | Expande el checkpoint, termina con un resumen TIL de tres actos y se detiene. |
 | Un secreto pudo entrar al historial, como una API key commiteada por error, o hay que quitar la marca de un vendor | [dirrty](.agents/skills/dirrty/SKILL.md) | Detecta, confirma y purga un valor exacto de archivos e historial; también quita la autoría de vendors como último recurso. |
 
@@ -448,7 +448,7 @@ La mini es autocontenida: no instala el agente Dove ni el resto del Canon. Para
 fijar un release publicado, agrega su tag, por ejemplo:
 
 ```sh
-npx skills add cangrejometralleta/dove-canon#v2.1.0 --skill cadencia-dove-mini
+npx skills add cangrejometralleta/dove-canon#v2.2.0 --skill cadencia-dove-mini
 ```
 
 `npx skills add` también puede instalar el resto de las skills, pero no instala
