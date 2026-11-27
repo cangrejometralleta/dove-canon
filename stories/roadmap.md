@@ -47,3 +47,10 @@ So the Estimate says what a model understood, not what a person does.
 A short human check, plain against DeLaCase, confirms or breaks it.
 
 Build the Linter when a first Measurement shows the Capitals earn their cost.
+
+The [measurement](../references/delacase-measurement.md) Counts the Tokens,
+Budget and Highlight coverage for one Sample. In the model Reader trial,
+Plain and DeLaCase reached the Score ceiling in every Run. Mini compressed
+two details that Readers then omitted. In a human lookup pilot, DeLaCase
+felt easier to Scan and the Plain answer was more precise. The next Step
+is a timed lookup with matching Wording and reversed Order across Readers.
