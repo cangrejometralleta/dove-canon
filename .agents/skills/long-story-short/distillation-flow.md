@@ -57,7 +57,7 @@ flowchart TD
     INDEX --> STOP["Stop · the commit is its own Request"]
 ```
 
-The project's index and cap count active Story documents, including
+The project's index counts active Story documents, including
 substories. Source documents and source links do not count as Stories.
 
 ## Two Maps, one Passage
@@ -106,8 +106,8 @@ Every Story Answers three, in this order:
 - *What the Muchi refactor left open* held three points.  
   The Canon already Answered two; they were muchi-api's work, not ours.  
   One real question Remained, waiting for a second adapter.
-- A merge Frees a slot; a shortened story Keeps it.  
-  Only a Story that Leaves makes room for the tenth.
+- A merge lowers the active Count. A shortened Story still counts.
+  Around nine active Stories, review the list.
 
 ## Open
 

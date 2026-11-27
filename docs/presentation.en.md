@@ -16,7 +16,7 @@ Dove Canon is a Manifesto and a Practice for expressing ideas, organizing work a
 
 The project brings together Values, Patterns and Rules. Values express what matters; Patterns recognize forms that recur in different situations. Rules turn some of that learning into Actions we can verify. This distinction allows us to hold Convictions while revising how we put them into practice.
 
-No idea enters those three directly. It arrives as raw experience, becomes a [Story](../STORY.md) once the Person is removed from it, and waits there until it can Govern. Nine Stories fill the Passage; a tenth has to wait until one leaves. The same Passage works in a code project, where a Story lands as documentation, as code held by a test or as the promise an API makes.
+No idea enters those three directly. It arrives as raw experience, becomes a [Story](../STORY.md) once the Person is removed from it, and waits there until it can Govern. Around nine active Stories, review the Passage and distill what is ready. The same Passage works in a code project, where a Story lands as documentation, as code held by a test or as the promise an API makes.
 
 The approach is useful beyond programming. A task list, a shared decision or a difficult explanation also requires choices about what to show, what to connect and what to leave for later. This document introduces the project's Ideas and some ways to try them in everyday life.
 

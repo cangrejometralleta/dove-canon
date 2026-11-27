@@ -1,6 +1,6 @@
 ---
 name: long-story-short
-description: "List pending Stories from the project's index or user-named sources, sort each by what it waits on, and distill the one the user picks to where it governs. Use when the user asks for pending Stories or what can be distilled, wants to pick one or split a shared source into Stories or substories, or STORY.md is full. It lands one Story per turn and never commits."
+description: "List pending Stories from the project's index or user-named sources, sort each by what it waits on, and distill the one the user picks to where it governs. Use when the user asks for pending Stories or what can be distilled, wants to pick one or split a shared source into Stories or substories, or the Story list needs review. It lands one Story per turn and never commits."
 ---
 
 # LongStoryShort
@@ -41,7 +41,7 @@ how many Stories there are.
 - Use a parent and linked substories when parts share an intent or context
   but need their own triggers, states or dependencies. A child can move on its
   own; keep only shared context or an independent open outcome in the parent.
-- List every active Story and substory in the project's index. The cap counts
+- List every active Story and substory in the project's index. The active count includes
   those Story units; source documents and links do not count as Stories.
 - If no Story index exists, use the project's existing index or document
   pattern and keep source links explicit; do not invent a new structure.
@@ -81,7 +81,7 @@ That is its own State, and it never Drains early.
 - The user asks to assess Stories from named source records or split a shared
   source into separate Stories or linked substories.
 - The user wants to Pick a story, or asks which one can move.
-- STORY.md is Full, and a tenth piece is Waiting to enter.
+- The Story list needs review, for example when it reaches nine active Stories.
 
 Do not invoke merely to capture raw chaos. In the Canon, stripping the Person
 is still a human Step.
@@ -115,7 +115,7 @@ Quote the line that Answers it.
 ## Present
 
 One Table: number, story, State, one line of why.
-Then the Count, `N of 9`.
+Then the active Count. Around nine, suggest a review.
 
 Then up to three numbered Options, only among `Ready`,
 `Answered`, `Merge` and `Misplaced`. Recommend one, and say why.
@@ -157,7 +157,7 @@ Say so; the Count does not move.
 
 ```text
 ✅ Merged Own linter and LiteLLM into stories/roadmap.md
-STORY.md is at 8 of 9.
+STORY.md has 8 active Stories.
 
 Next — commit the merge.
 ```
@@ -171,7 +171,6 @@ Next — commit the merge.
 - Never Distill a `Moving`, `Blocked`, `Speculative` or `Waiting` story unless the user insists,
   and then name what the project Loses by taking it early.
 - Never land two Stories in one turn.
-- Never promote a tenth Story while nine are Full.
 - Never rewrite a human's Rhythm to make it fit.
 - Never commit; [PushIt](../push-it/SKILL.md) does that.
 - Never do another repository's work from here; name it and hand it over.

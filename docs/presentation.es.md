@@ -16,7 +16,7 @@ Dove Canon es un Manifiesto y una Práctica para expresar ideas, organizar traba
 
 El proyecto reúne Valores, Patrones y Reglas. Los Valores expresan lo que importa; los Patrones reconocen formas que reaparecen en situaciones distintas. Las Reglas convierten parte de ese aprendizaje en Acciones que se pueden comprobar. Esta distinción permite tener Convicciones y, al mismo tiempo, revisar cómo las llevamos a la práctica.
 
-Ninguna idea entra directo a esos tres. Llega como experiencia en bruto, se vuelve una [Historia](../STORY.md) cuando se le quita la Persona, y espera ahí hasta poder Gobernar. Nueve Historias llenan el Pasaje; una décima espera hasta que alguna salga. El mismo Pasaje funciona en un proyecto de código, donde una Historia aterriza como documentación, como código sostenido por un test o como la promesa que hace una API.
+Ninguna idea entra directo a esos tres. Llega como experiencia en bruto, se vuelve una [Historia](../STORY.md) cuando se le quita la Persona, y espera ahí hasta poder Gobernar. Alrededor de nueve Historias activas, revisa el Pasaje y destila las que estén listas. El mismo Pasaje funciona en un proyecto de código, donde una Historia aterriza como documentación, como código sostenido por un test o como la promesa que hace una API.
 
 La propuesta es aplicable fuera de la programación. Una lista de pendientes, una decisión compartida o una explicación difícil también exigen elegir qué mostrar, qué relacionar y qué dejar para después. Este documento presenta las Ideas del proyecto y algunas maneras de probarlas en la vida diaria.
 

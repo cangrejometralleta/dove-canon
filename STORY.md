@@ -9,7 +9,7 @@ It is the second of three stages:
 ```mermaid
 flowchart LR
     Chaos["chaos/<br/>raw Life<br/>private"]
-    Stories["stories/<br/>Person Removed<br/>cap: 9"]
+    Stories["stories/<br/>Person Removed<br/>review around 9"]
     Values["Values<br/>a Belief"]
     Rules["Rules<br/>a Rule"]
     Patterns["Patterns<br/>a Root"]
@@ -36,9 +36,8 @@ a root goes to Patterns.
 The full process is in the README,
 under "How Context Becomes Canon".
 
-- Cap: nine entries. Once nine are full,
-  distill before promoting a tenth.
-  A limit generates quality here too.
+- Around nine active Stories, review the list and distill what is ready.
+  New Stories can still enter while others wait.
 - This file shrinks; the canon grows.
 - Each entry carries its status:
   UNDISTILLED, SPECULATIVE
@@ -52,7 +51,7 @@ AGENTS.md stays free for the short pointer to canon.
 
 ## Undistilled Context
 
-7 of 9 filled. Distill before promoting a tenth.
+7 active Stories.
 
 - [Roadmap](stories/roadmap.md) — own linter and modular cluster with LiteLLM
 - [Another three showing up on its own](stories/another-three-showing-up.md) (SPECULATIVE)

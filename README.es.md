@@ -469,7 +469,7 @@ flowchart LR
 
 - Una creencia va a Values, una regla que un agente puede correr va a Rules, una raíz va a Patterns.
 - Una story espera evidencia, trabajo aún en movimiento o una decisión: BLOCKED.
-- Nueve Stories llenan el pasaje; se destila una antes de promover una décima.
+- Alrededor de nueve Historias activas, revisa la lista y destila las que estén listas.
 - `chaos/` tiene su propio `.gitignore`, y solo su ejemplo se publica.
 - En un proyecto de código, una decisión aterriza en `docs/`, una regla en código sostenido por un test, una promesa en el contrato de la API.
 

@@ -460,7 +460,7 @@ flowchart LR
 
 - A belief goes to Values, a rule an agent can run goes to Rules, a root goes to Patterns.
 - A story waits on evidence, on work still moving, or on a decision: BLOCKED.
-- Nine Stories fill the passage; distill one before promoting a tenth.
+- Around nine active Stories, review the list and distill what is ready.
 - `chaos/` has its own `.gitignore`, and only its example ships.
 - In a code project a decision lands in `docs/`, a rule in code held by a test, a promise in the API contract.
 
