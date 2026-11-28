@@ -59,7 +59,7 @@ AGENTS.md stays free for the short pointer to canon.
 - [A Memory at the Root](stories/memory-index.md)
 - [A Channel for Design](stories/a-channel-for-design.md) (BLOCKED: second working Kind) — the Value landed and the Catalog in `like-to-move-it` has its API entry
 - [Common Language Aligns](stories/common-language-aligns.md) — psychology and common language as small, calibrated contributions to alignment
-- [Code Generation Needs a Size and Correctness Trial](stories/code-generation-benchmark.md) (MOVING: Luna High G-L Dove failed the adapter contract; a Sonnet High G-L Dove retry passed it; smaller cases, replications and the other conditions on Sonnet remain) — compare vanilla, Caveman and Dove against School at three scales
+- [Code Generation Needs an Understandability and Change-Cost Trial](stories/code-generation-benchmark.md) (MOVING: Luna High G-L Dove failed the adapter contract; Sonnet High G-L Dove and Caveman passed it; vanilla on Sonnet, understandability/change-cost metrics, smaller cases and replications remain) — compare vanilla, Caveman and Dove against School on correctness, boundaries, understandability and change cost
 
 ## Provenance Map
 

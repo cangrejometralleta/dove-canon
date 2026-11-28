@@ -1,19 +1,24 @@
-# Code Generation Needs a Size and Correctness Trial (MOVING)
+# Code Generation Needs an Understandability and Change-Cost Trial (MOVING)
 
-The summary benchmark gave a promising but narrow signal: Dove used slightly
-fewer tokens than Caveman and fewer than vanilla across six three-paragraph
-story summaries. Code may expose a different cost. A short patch that skips an
-acceptance case is not an improvement, so size and correctness need to be read
-together.
+The summary benchmark gave a narrow brevity signal across three-paragraph story
+summaries. Code carries a different promise: Dove does not promise less code
+or fewer lines; it promises code a person or agent can understand, verify and
+change without breaking unrelated layers (`values/approaches.md` measures cost
+of change, never line count).
+
+Token and line counts still belong in the trial, but only as a cost ceiling to
+check that Dove's structure does not carry an unreasonable token penalty. A
+short patch that collapses layers or skips an acceptance case fails the Canon's
+promise even when its build passes.
 
 ## Planned comparison
 
 - **Conditions:** vanilla, Caveman and Dove, in fresh worktrees.
-- **Model:** `gpt-6-luna`.
+- **Model:** `gpt-6-luna` (and paired runs on `claude-sonnet-5`, kept on its own scale).
 - **Effort:** high.
 - **Runs:** three independent samples per condition and scenario.
 - **Fixed inputs:** task, starter commit, tools, time limit and acceptance checks.
-- **Review:** hide the condition label until correctness and scope are scored.
+- **Review:** hide the condition label until correctness, boundaries and understandability are scored.
 
 These are the settings for the planned code trial. The earlier story-summary
 benchmark ran in a different session; its serving model and effort were not
@@ -64,17 +69,81 @@ production code, but not the task text, acceptance checks or measurements.
 
 The repair and refactor cards need seeded starter fixtures with deliberate
 defects or structure. Those fixtures must live outside the School reference so
-the benchmark never damages its working implementation. Acceptance checks also
-need to be packaged before running any condition.
+the benchmark never damages its working implementation. Acceptance checks and
+boundary checks also need to be packaged before running any condition.
 
-For each run, record passing and failing checks first, then response tokens,
-changed-code tokens, added and removed production lines, files, dependencies,
-omitted behaviors, unnecessary public surface and completion time. Report
-medians and ranges. Keep correctness separate from size: a smaller patch that
-fails a check is a failure, not an efficiency win.
+Record three separate layers for each run, keeping the promise apart from the
+cost ceiling:
 
-Distill after the fixtures and a first controlled run show whether the size
-question deserves a durable rule or pattern.
+1. **Correctness and boundaries (the gate):** passing and failing acceptance
+   checks, Core import checks (`go list -deps ./school` naming no vendor,
+   socket or wire package), separation of the three `Shapes` (wire, business,
+   storage), `adaptertest` parity, omitted behaviors and unnecessary public
+   surface.
+2. **Understandability and change cost (the promise):**
+   - *Change locality* (measured on `Repair` and `Refactor` cards): files and
+     packages touched per change, whether edits leak across `school/`, `app/`
+     or adapters, and whether boundary checks still pass after the edit.
+   - *Blind reader lookup / resumption*: fresh reader sessions (or a human
+     check) asked against the generated codebase alone where a rule lives, how
+     a fault maps to a status, or where a new check belongs without crossing
+     layers — scored on answer accuracy and navigation steps.
+3. **Generation cost (the ceiling, not the goal):** response tokens,
+   changed-code tokens, production lines, files, dependencies and completion
+   time. Report medians and ranges.
+
+Keep correctness, boundaries and understandability separate from cost: a
+smaller patch that fails a check or collapses layers is a failure, not an
+efficiency win.
+
+Distill after the fixtures and a first controlled run measure correctness,
+boundaries, understandability and change cost across conditions.
+
+## Understandability and change-cost protocol
+
+Before building seeded fixtures for `Repair` and `Refactor`, the existing
+`G-L` outputs (and `examples/school/go/` as the reference anchor) can be scored
+with one fixed protocol that assumes no Dove-specific package names:
+
+1. **Boundary gate (automated) + negative check:**
+   - Run `./build.sh` and the shared `adaptertest` suite.
+   - Run `go list -deps` on the business-core package and `go list -f '{{.ImportPath}} -> {{.Imports}}' ./...` across all packages to record whether core logic imports any HTTP framework, `net/http`, ORM, SQL driver or socket package.
+   - Verify the gate itself fails on a temporary negative check (injecting a forbidden import such as `net/http` or an ORM into the core package) so a passing gate cannot be a no-op.
+2. **Blind reader lookup (7 questions, 14 points + navigation count):**
+   Give a fresh toolless session (or human reader) only the generated Go source
+   directory, with condition labels removed, and ask it to answer using only
+   the code and cite file paths and symbols. Record the reader model and effort,
+   and pair a strong reader with a light reader (`flash_lite` / low effort) so
+   a ceiling on a strong model does not mask differences in navigability:
+   - *Q1 (Domain check order & constants):* After JSON parsing, in what order are a student's domain fields validated, and where does minimum-age configuration come from? (Order `Name -> RUT -> Age`; global constant, not deployment env.)
+   - *Q2 (Admission & notice failure):* In what order are Course, Registry and Store checked on enrollment, and what happens when the Registry is unavailable vs when the announcement fails? (`Form -> Course -> Registry -> Store -> Announce`; Registry unavailable fails `503`, announcement failure logs and still succeeds.)
+   - *Q3 (Fault mapping):* Where does a domain/service failure turn into an HTTP status and JSON body, and what reaches the caller on an unexpected driver error? (Mapping site; `500` with `internal error` and no driver message.)
+   - *Q4 (RUT normalization & uniqueness):* How are `12345-K` and `12345-k` normalized, are leading zeros kept, and what proves RUT uniqueness? (Lowercase `k`, leading zeros kept; store uniqueness constraint -> `409`, not in-memory scan.)
+   - *Q5 (Adapter swap surface):* Which Go source files change to add another HTTP framework adapter alongside `stdlib` without changing business or store behavior? (Adapter + composition root only; core and store untouched.)
+   - *Q6 (Change localization):* If `POST /students` must reject enrollment in a course that already holds a global constant of 30 students with `422` (`course is Full`), which files and packages change and which stay untouched? (Identifies fault, status map if needed, rule/config constant, store count query, service check and tests; states whether HTTP adapters stay untouched.)
+   - *Q7 (Absence / negative control):* Where in the code are `PUT /courses/{id}` and `DELETE /courses/{id}` routed and implemented? (Must state from code that neither route nor handler/service method exists, rather than inferring CRUD symmetry.)
+   Record score out of 14, file lookups/clarification requests needed, and any place the reader misread a boundary or hallucinated an absent feature.
+3. **Code negative control (coupled baseline that passes tests):**
+   Include at least one working, coupled Go `School` implementation (single
+   package or `BEFORE`-style coupling of HTTP, domain and GORM that still passes
+   the contract tests) alongside `vanilla`, `Caveman` and `Dove`, and run the
+   same boundary gate, blind reader lookup and change-locality probe on it. A
+   protocol that gives the coupled baseline the same score and locality as
+   `Dove` does not measure understandability or change cost.
+4. **Change-locality probe (next step once paired `G-L` trees are captured):**
+   Apply Q6's `course is Full` change across each condition's `G-L` output (and
+   the coupled negative control) and record production files touched, packages
+   crossed, whether HTTP adapters or store schemas changed, and whether
+   `./build.sh` and the core `go list -deps` check still pass.
+
+### Protocol calibration — `examples/school/go/` — 2026-11-28
+
+Ran the boundary gate and a fresh `research` subagent (`Gemini 4 Hydrogen`, High)
+restricted to the 24 production `.go` files in `examples/school/go/`:
+
+- **Boundary gate:** `gofmt -l .`, `go vet ./...` and `go test ./...` passed across all 11 tested packages; `go list -deps ./school` listed zero HTTP, ORM or socket packages (`app/` imports `net/http` only for status-code constants in `app/status.go`).
+- **Blind reader calibration (`Gemini 4 Hydrogen`, High):** 12 of 12 across Q1–Q6 in 25 tool calls (1 file list + 24 file reads) with zero misread boundaries. The calibration exposed ambiguity in the initial Q6 wording (where capacity lives and whether `PUT` shares the check), Q1 (JSON vs domain validation) and Q5 (`.go` files vs `go.mod`/config), which were tightened above; it did not yet include Q7 or a coupled negative control.
+- **Light blind reader calibration (`flash_lite`, Q1–Q7):** 10 of 14 in 6 tool calls (1 file list + 5 file reads; never read `faults/faults.go`, `store/store_gorm.go`, `settings/`, `serving/reading.go`, `transport/`, `wire/` or `main.go`). It passed Q1 (2/2), Q2 (2/2) and the Q7 absence check (2/2, confirming `PUT`/`DELETE /courses/{id}` do not exist), but guessed unread files on Q3 (1/2: claimed `{error: ""}` instead of `"internal error"`), Q4 (1/2: inferred store uniqueness without reading `store_gorm.go`), Q5 (1/2: invented `serving.Adapter` and included `wire/` and `transport/`) and Q6 (1/2: missed `settings/` and `app/providers.go`). The light reader avoids the strong-model ceiling and exposes guesswork when files go unread.
 
 ## Preliminary G-L Run — 2026-11-10
 
