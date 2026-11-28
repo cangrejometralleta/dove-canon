@@ -32,6 +32,7 @@
 - [Layers](rules/layers.md) — the compiler Holds the boundary. *(Provisional)*
 - [Failures](rules/failures.md) — the failure Carries its answer. *(Provisional)*
 - [Tests](rules/tests.md) — spell the Expectation, then mutate. *(Provisional)*
+- [Experiments](rules/experiments.md) — measure against a Blank that must hold still. *(Provisional)*
 - [Vendor Integration](rules/vendor-integration.md) — one source, links and small Adapters.
 - [Unbrand](rules/unbrand.md) — the Work Signs nothing. *(Provisional)*
 - [Naming](rules/naming.md) — Verb + Noun + context.
